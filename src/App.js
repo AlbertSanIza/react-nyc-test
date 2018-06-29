@@ -126,6 +126,13 @@ class App extends Component {
         }
         return filters
     }
+    updateFiltersAppliedList(data) {
+        var filtersAppliedListCopy = this.state.filtersAppliedList.filter(z => z.title != data.title)
+        if(data.value !== "ALL") {
+            filtersAppliedListCopy.push(data)
+        }
+        this.setState({filtersAppliedList: filtersAppliedListCopy})
+    }
     render() {
         if(!this.state.loading) {
             return(
