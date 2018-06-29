@@ -87,7 +87,7 @@ class App extends Component {
                     default: break
                 }
             }
-            this.setState({loading: false, serverData: responseData, filteredData: this.updateFilteredData(responseData), filterOptions: this.getFilterOptions(responseData)})
+            this.setState({loading: false, serverData: responseData, filteredData: this.updateFilteredData(responseData, this.state.filterAppliedList), filterOptions: this.getFilterOptions(responseData)})
         })
     }
     getFilterOptions(data) {
@@ -120,7 +120,7 @@ class App extends Component {
         }
         this.setState({filterAppliedList: filterAppliedListCopy})
     }
-    updateFilteredData(data) {
+    updateFilteredData(data, filters) {
         var nameCount = data.reduce((y, z) => z[3] in y ? (y[z[3]]++, y) : (y[z[3]] = 1, y), {})
         var sortable = []
         for(var name in nameCount) {
