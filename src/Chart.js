@@ -11,6 +11,9 @@ class Chart extends Component {
                 datasets: []
             },
             options: {
+                legend: {
+                    display: false
+                },
                 scales: {
                     yAxes: [{
                         ticks: {
