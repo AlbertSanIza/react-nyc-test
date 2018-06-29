@@ -2,7 +2,7 @@ html, body {
     width: 100%;
     height: 100%;
     background: #E0F2F1;
-    background: linear-gradient(#E0F2F1, #ECEFF1);
+    background: linear-gradient(#E0F2F1, #CFD8DC);
 }
 .badge {
     margin-left: 7px;
