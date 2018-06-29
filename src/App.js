@@ -72,7 +72,7 @@ class App extends Component {
             var responseData = response.data.data
             for(var i = 0; i < responseData.length; i++) {
                 responseData[i] = [
-                    responseData[i][8], responseData[i][9], responseData[i][10], responseData[i][11]
+                    responseData[i][8], responseData[i][9], responseData[i][10], responseData[i][11].toUpperCase()
                 ]
                 switch (responseData[i][2]) {
                     case "WHITE NON HISP":
