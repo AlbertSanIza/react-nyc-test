@@ -157,9 +157,15 @@ class App extends Component {
                 </div>
                 </div>
                 <div className="row pt-3">
-                <Filter title="Year" options={this.state.filterOptions[0]} onFilterChange={this.updatefilterAppliedList}/>
-                <Filter title="Gender" options={this.state.filterOptions[1]} onFilterChange={this.updatefilterAppliedList}/>
-                <Filter title="Ethnicity" options={this.state.filterOptions[2]} onFilterChange={this.updatefilterAppliedList}/>
+                {this.state.filterOptions.map((y, z) => {
+                    switch (y[0]) {
+                        case "CHILD'S FIRST NAME":
+                        return ""
+                        break
+                        default:
+                        return <Filter key={z} options={y} onFilterChange={this.updatefilterAppliedList}/>
+                    }
+                })}
                 </div>
                 <FiltersApplied list={this.state.filterAppliedList}/>
                 </div>
