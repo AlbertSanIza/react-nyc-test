@@ -1,7 +1,8 @@
 {
   "name": "react-nyc-test",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "homepage" : "http://AlbertSanIza.github.io/react-nyc-test",
   "dependencies": {
     "axios": "^0.18.0",
     "chart.js": "^2.7.2",
