@@ -120,6 +120,28 @@ class App extends Component {
         }
         this.setState({filterAppliedList: filterAppliedListCopy})
     }
+    updateFilteredData(data) {
+        var nameCount = data.reduce((y, z) => z[3] in y ? (y[z[3]]++, y) : (y[z[3]] = 1, y), {})
+        var sortable = []
+        for(var name in nameCount) {
+            sortable.push([name, nameCount[name]])
+        }
+        sortable.sort((y, z) => z[1] - y[1])
+        var labels = []
+        var datasetData = []
+        for(var i = 0; i < 10; i++) {
+            labels.push(sortable[i][0])
+            datasetData.push(sortable[i][1])
+        }
+        return {
+            labels: labels,
+            datasets: [{
+                label: 'Top 10',
+                data: datasetData,
+                borderWidth: 2
+            }]
+        }
+    }
     render() {
         if(!this.state.loading) {
             return(
