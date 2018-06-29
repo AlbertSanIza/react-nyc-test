@@ -114,6 +114,11 @@ class App extends Component {
         if(!this.state.loading) {
             return(
                 <div className="fade-in">
+                <div className="row pt-4">
+                <div className="col-sm-12">
+                <h2>NYC Baby Names</h2>
+                </div>
+                </div>
                 <div className="row pt-3">
                 <div className="col-md-12">
                 <Chart data={this.state.filteredData} width={400} heigth={150}/>
