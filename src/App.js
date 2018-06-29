@@ -22,7 +22,7 @@ class App extends Component {
         this.updatefilterAppliedList = this.updatefilterAppliedList.bind(this)
     }
     getServerData() {
-        axios.get('mock-data.json').then(response => {
+        axios.get('https://data.cityofnewyork.us/api/views/25th-nujf/rows.json').then(response => {
             var columnName = []
             response.data.meta.view.columns.forEach(z => {
                 columnName.push(z.name.toUpperCase())
