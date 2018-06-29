@@ -3,8 +3,8 @@ import axios from 'axios'
 import './App.css'
 
 class Filter extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             value: "ALL"
         }
