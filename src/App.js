@@ -129,6 +129,11 @@ class App extends Component {
         var filteredArray = data.slice()
         var headers = filteredArray[0]
         filteredArray.shift()
+        filters.forEach(x => {
+            filteredArray = filteredArray.filter(z => {
+                return z[headers.indexOf(x.title)] === x.value
+            })
+        })
         filteredArray = filteredArray.reduce((y, z) => z[3] in y ? (y[z[3]]++, y) : (y[z[3]] = 1, y), {})
         var sortable = []
         for(var name in filteredArray) {
