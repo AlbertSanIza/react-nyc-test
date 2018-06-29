@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { Bar } from 'react-chartjs-2'
 import './App.css'
 
 class Filter extends Component {
