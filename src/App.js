@@ -39,16 +39,20 @@ class App extends Component {
         this.loadServerData()
     }
     render() {
-        return (
-            <div>
-            <div className="row pt-3">
-            <Filter title="Year"/>
-            <Filter title="Gender"/>
-            <Filter title="Ethnicity"/>
-            </div>
-            <button className='button' onClick={this.handleClick}>Click Me</button>
-            </div>
-        )
+        this.loadServerData()
+        if(this.state.loaded) {
+            return(
+                <div>
+                <div className="row pt-3">
+                <Filter title="Year" options={this.yearFilter}/>
+                <Filter title="Gender" options={this.yearFilter}/>
+                <Filter title="Ethnicity" options={this.yearFilter}/>
+                </div>
+                <button className='button' onClick={this.handleClick}>Click Me</button>
+                </div>
+            )
+        }
+        return "Loading..."
     }
 }
 export default App
