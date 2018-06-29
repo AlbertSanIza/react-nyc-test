@@ -99,7 +99,7 @@ class App extends Component {
         var filters = []
         if(data[0].length > 0) {
             for(var a = 0; a < data[0].length; a++) {
-                filters.push(["ALL"])
+                filters.push([data[0][a], "ALL"])
             }
             for(var i = 0; i < data.length; i++) {
                 for(var j = 0; j < data[i].length; j++) {
