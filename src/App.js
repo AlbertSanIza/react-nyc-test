@@ -115,7 +115,7 @@ class App extends Component {
                 <div className="fade-in">
                 <div className="row pt-4">
                 <div className="col-sm-12">
-                <h2>Top 10: NYC Baby Names</h2>
+                <h2>Top 10: NYC Baby Names <small className="text-muted">by Albert Sanchez</small></h2>
                 </div>
                 </div>
                 <div className="row pt-3">
