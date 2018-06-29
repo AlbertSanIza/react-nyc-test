@@ -124,6 +124,7 @@ class App extends Component {
             filterAppliedListCopy.push(data)
         }
         this.setState({filterAppliedList: filterAppliedListCopy})
+        this.updateFilteredData(this.state.serverData, filterAppliedListCopy)
     }
     updateFilteredData(data, filters) {
         var nameCount = data.reduce((y, z) => z[3] in y ? (y[z[3]]++, y) : (y[z[3]] = 1, y), {})
