@@ -3,6 +3,27 @@ import axios from 'axios'
 import { Bar } from 'react-chartjs-2'
 import './App.css'
 
+class Chart extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            data: {
+                labels: ["Names", "Names", "Names", "Names", "Names", "Names", "Names", "Names", "Names", "Names"],
+                datasets: [{
+                    label: 'Top 10',
+                    data: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
+                    borderWidth: 2
+                }]
+            }
+        }
+    }
+    render() {
+        return(
+            <Bar data={this.state.data} width={400} height={150}/>
+        )
+    }
+}
+
 class Filter extends Component {
     constructor(props) {
         super(props)
@@ -89,6 +110,11 @@ class App extends Component {
         if(this.state.loaded) {
             return(
                 <div>
+                <div className="row pt-3">
+                <div className="col-md-12">
+                <Chart/>
+                </div>
+                </div>
                 <div className="row pt-3">
                 <Filter title="Year" options={this.state.filterOptions[0]}/>
                 <Filter title="Gender" options={this.state.filterOptions[1]}/>
