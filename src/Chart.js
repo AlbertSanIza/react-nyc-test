@@ -26,6 +26,18 @@ class Chart extends Component {
     }
     updateChart = memoize(data => {
         if(data) {
+            data.datasets[0].backgroundColor = [
+                'rgba(0, 255, 153, 0.25)',
+                'rgba(28, 255, 153, 0.25)',
+                'rgba(56, 255, 153, 0.25)',
+                'rgba(85, 255, 153, 0.25)',
+                'rgba(113, 255, 153, 0.25)',
+                'rgba(141, 255, 153, 0.25)',
+                'rgba(170, 255, 153, 0.25)',
+                'rgba(198, 255, 153, 0.25)',
+                'rgba(226, 255, 153, 0.25)',
+                'rgba(255, 255, 153, 0.25)'
+            ]
             this.setState({data: data})
         }
     })
