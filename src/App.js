@@ -54,9 +54,7 @@ class FiltersApplied extends Component {
             <div className="col-md-12">
             <h5>
             Filters Applied:
-            <span className="badge badge-secondary">Year - </span>
-            <span className="badge badge-secondary">Gender - </span>
-            <span className="badge badge-secondary">Ethnicity - </span>
+            {this.props.list.map(z => <span className="badge badge-secondary">{z.name} - {z.value}</span>)}
             </h5>
             </div>
             </div>
@@ -70,7 +68,8 @@ class App extends Component {
         this.state = {
             loading: true,
             serverData: [],
-            filterOptions: []
+            filterOptions: [],
+            filtersAppliedList: []
         }
         this.getServerData()
     }
@@ -134,7 +133,7 @@ class App extends Component {
                 <Filter title="Gender" options={this.state.filterOptions[1]}/>
                 <Filter title="Ethnicity" options={this.state.filterOptions[2]}/>
                 </div>
-                <FiltersApplied/>
+                <FiltersApplied list={this.state.filtersAppliedList}/>
                 </div>
             )
         }
