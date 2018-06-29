@@ -43,7 +43,7 @@ class Filter extends Component {
             <div className="col-sm-4 form-group">
             <label>{this.props.title}:</label>
             <select className="form-control" value={this.state.value} onChange={this.handleFilterChange}>
-            {this.props.options.map((x, y) => <option key={y} value={x}>{x}</option>)}
+            {this.props.options.map((y, z) => <option key={z} value={y}>{y}</option>)}
             </select>
             </div>
         )
@@ -57,7 +57,7 @@ class FiltersApplied extends Component {
             <div className="col-md-12">
             <h5>
             Filters Applied:
-            {this.props.list.map(z => <span className="badge badge-secondary">{z.title} - {z.value}</span>)}
+            {this.props.list.map((y, z) => <span className="badge badge-secondary" key={z}>{y.title} - {y.value}</span>)}
             </h5>
             </div>
             </div>
