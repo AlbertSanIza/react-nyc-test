@@ -21,6 +21,7 @@ class App extends Component {
     constructor() {
         super()
         this.state = {
+            loaded: false,
             serverData: []
         }
         this.handleClick = this.handleClick.bind(this)
