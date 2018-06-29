@@ -105,7 +105,7 @@ class App extends Component {
         return {
             labels: labels,
             datasets: [{
-                data: datasetData,
+                data: datasetData
             }]
         }
     }
