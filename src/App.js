@@ -127,7 +127,7 @@ class App extends Component {
         return filters
     }
     updateFiltersAppliedList(data) {
-        var filtersAppliedListCopy = this.state.filtersAppliedList.filter(z => z.title != data.title)
+        var filtersAppliedListCopy = this.state.filtersAppliedList.filter(z => z.title !== data.title)
         if(data.value !== "ALL") {
             filtersAppliedListCopy.push(data)
         }
