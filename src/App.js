@@ -18,9 +18,8 @@ class Filter extends Component {
             <div className="col-sm-4 form-group">
             <label>{this.props.title}:</label>
             <select className="form-control" value={this.state.value} onChange={this.handleSelectChange}>
-            <option value="ALL">ALL</option>
+            {this.props.options.map((x, y) => <option key={y} value={x}>{x}</option>)}
             </select>
-            {this.props.options}
             </div>
         )
     }
