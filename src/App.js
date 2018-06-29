@@ -135,12 +135,14 @@ class App extends Component {
         for(var name in filteredArray) {
             sortable.push([name, filteredArray[name]])
         }
-        sortable.sort((y, z) => z[1] - y[1])
         var labels = []
         var datasetData = []
-        for(var i = 0; i < 10; i++) {
-            labels.push(sortable[i][0])
-            datasetData.push(sortable[i][1])
+        if(sortable.length > 0) {
+            sortable.sort((y, z) => z[1] - y[1])
+            for(var i = 0; i < 10; i++) {
+                labels.push(sortable[i][0])
+                datasetData.push(sortable[i][1])
+            }
         }
         return {
             labels: labels,
