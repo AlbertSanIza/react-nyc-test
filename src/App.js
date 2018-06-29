@@ -123,8 +123,7 @@ class App extends Component {
         if(data.value !== "ALL") {
             filterAppliedListCopy.push(data)
         }
-        this.setState({filterAppliedList: filterAppliedListCopy})
-        this.updateFilteredData(this.state.serverData, filterAppliedListCopy)
+        this.setState({filterAppliedList: filterAppliedListCopy, filteredData: this.updateFilteredData(this.state.serverData, filterAppliedListCopy)})
     }
     updateFilteredData(data, filters) {
         var filteredArray = data.slice()
