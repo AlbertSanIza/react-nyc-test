@@ -78,7 +78,21 @@ class App extends Component {
         axios.get('mock-data.json').then(response => {
             var responseData = response.data.data
             for(var i = 0; i < responseData.length; i++) {
-                responseData[i] = [responseData[i][8], responseData[i][9], responseData[i][10], responseData[i][11]]
+                responseData[i] = [
+                    responseData[i][8], responseData[i][9], responseData[i][10], responseData[i][11]
+                ]
+                switch (responseData[i][2]) {
+                    case "WHITE NON HISP":
+                    responseData[i][2] = "WHITE NON HISPANIC"
+                    break
+                    case "BLACK NON HISP":
+                    responseData[i][2] = "BLACK NON HISPANIC"
+                    break
+                    case "ASIAN AND PACI":
+                    responseData[i][2] = "ASIAN AND PACIFIC ISLANDER"
+                    break
+                    default: break
+                }
             }
             this.setState({loading: false, serverData: responseData, filterOptions: this.getFilterOptions(responseData)})
         })
