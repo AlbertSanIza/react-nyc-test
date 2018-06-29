@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Bar } from 'react-chartjs-2'
+import Chart from './Chart.js'
 import Filter from './Filter.js'
 import FilterList from './FilterList.js'
 import './App.css'
@@ -121,15 +121,7 @@ class App extends Component {
                 <div>
                 <div className="row pt-3">
                 <div className="col-md-12">
-                <Bar data={this.state.filteredData} options={{
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }]
-                    }
-                }}width={400} height={150}/>
+                <Chart labels={["hola", "perr", "gayo"]} datasets={[{data: [0, 1, 2, 3]}]} width={400} heigth={150}/>
                 </div>
                 </div>
                 <div className="row pt-3">
