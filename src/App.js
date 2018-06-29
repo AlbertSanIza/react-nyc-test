@@ -53,19 +53,19 @@ class App extends Component {
         this.state = {
             loading: true,
             serverData: [],
-            filterOptions: [],
-            filtersAppliedList: [],
-            data: {
+            filteredData: {
                 labels: ["", "", "", "", "", "", "", "", "", ""],
                 datasets: [{
                     label: 'Top 10',
                     data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                     borderWidth: 2
                 }]
-            }
+            },
+            filterOptions: [],
+            filterAppliedList: []
         }
         this.getServerData()
-        this.updateFiltersAppliedList = this.updateFiltersAppliedList.bind(this)
+        this.updatefilterAppliedList = this.updatefilterAppliedList.bind(this)
     }
     getServerData() {
         axios.get('mock-data.json').then(response => {
@@ -113,12 +113,12 @@ class App extends Component {
         }
         return filters
     }
-    updateFiltersAppliedList(data) {
-        var filtersAppliedListCopy = this.state.filtersAppliedList.filter(z => z.title !== data.title)
+    updatefilterAppliedList(data) {
+        var filterAppliedListCopy = this.state.filterAppliedList.filter(z => z.title !== data.title)
         if(data.value !== "ALL") {
-            filtersAppliedListCopy.push(data)
+            filterAppliedListCopy.push(data)
         }
-        this.setState({filtersAppliedList: filtersAppliedListCopy})
+        this.setState({filterAppliedList: filterAppliedListCopy})
     }
     render() {
         if(!this.state.loading) {
@@ -126,15 +126,15 @@ class App extends Component {
                 <div>
                 <div className="row pt-3">
                 <div className="col-md-12">
-                <Bar data={this.state.data} width={400} height={150}/>
+                <Bar data={this.state.filteredData} width={400} height={150}/>
                 </div>
                 </div>
                 <div className="row pt-3">
-                <Filter title="Year" options={this.state.filterOptions[0]} onFilterChange={this.updateFiltersAppliedList}/>
-                <Filter title="Gender" options={this.state.filterOptions[1]} onFilterChange={this.updateFiltersAppliedList}/>
-                <Filter title="Ethnicity" options={this.state.filterOptions[2]} onFilterChange={this.updateFiltersAppliedList}/>
+                <Filter title="Year" options={this.state.filterOptions[0]} onFilterChange={this.updatefilterAppliedList}/>
+                <Filter title="Gender" options={this.state.filterOptions[1]} onFilterChange={this.updatefilterAppliedList}/>
+                <Filter title="Ethnicity" options={this.state.filterOptions[2]} onFilterChange={this.updatefilterAppliedList}/>
                 </div>
-                <FiltersApplied list={this.state.filtersAppliedList}/>
+                <FiltersApplied list={this.state.filterAppliedList}/>
                 </div>
             )
         }
