@@ -2,25 +2,8 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Bar } from 'react-chartjs-2'
 import Filter from './Filter.js'
+import FilterList from './FilterList.js'
 import './App.css'
-
-class FiltersApplied extends Component {
-    render() {
-        if(this.props.list.length > 0) {
-            return(
-                <div className="row pt-4">
-                <div className="col-md-12">
-                <h5>
-                Filters Applied:
-                {this.props.list.map((y, z) => <span className="badge badge-secondary" key={z}>{y.title} - {y.value}</span>)}
-                </h5>
-                </div>
-                </div>
-            )
-        }
-        return ""
-    }
-}
 
 class App extends Component {
     constructor() {
@@ -159,7 +142,7 @@ class App extends Component {
                     }
                 })}
                 </div>
-                <FiltersApplied list={this.state.filterAppliedList}/>
+                <FilterList data={this.state.filterAppliedList}/>
                 </div>
             )
         }
