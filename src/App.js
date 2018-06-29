@@ -71,7 +71,7 @@ class App extends Component {
         axios.get('mock-data.json').then(response => {
             var columnName = []
             response.data.meta.view.columns.forEach(z => {
-                columnName.push(z.name)
+                columnName.push(z.name.toUpperCase())
             })
             var responseData = response.data.data
             responseData.unshift(columnName)
