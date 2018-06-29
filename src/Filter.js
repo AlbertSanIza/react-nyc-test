@@ -10,7 +10,7 @@ class Filter extends Component {
     }
     handleFilterChange(evt) {
         this.setState({value: evt.target.value})
-        if (typeof this.props.onFilterChange === "function") {
+        if(typeof this.props.onFilterChange === "function") {
             this.props.onFilterChange({title: this.props.options[0], value: evt.target.value})
         }
     }

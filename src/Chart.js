@@ -25,7 +25,7 @@ class Chart extends Component {
         }
     }
     updateChart = memoize(data => {
-        if (data) {
+        if(data) {
             this.setState({data: data})
         }
     })
