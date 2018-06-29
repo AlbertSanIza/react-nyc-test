@@ -8,11 +8,27 @@ class Filter extends Component {
             <div className="col-sm-4 form-group">
             <label>{this.props.title}:</label>
             <select className="form-control">
-
             <option>All</option>
             <option>1</option>
             <option>2</option>
             </select>
+            </div>
+        )
+    }
+}
+
+class FiltersApplied extends Component {
+    render() {
+        return(
+            <div className="row pt-4">
+            <div className="col-md-12">
+            <h5>
+            Filters Applied:
+            <span className="badge badge-secondary">Year - </span>
+            <span className="badge badge-secondary">Gender - </span>
+            <span className="badge badge-secondary">Ethnicity - </span>
+            </h5>
+            </div>
             </div>
         )
     }
@@ -50,16 +66,7 @@ class App extends Component {
                 <Filter title="Ethnicity" options={this.yearFilter}/>
                 </div>
                 <button className='button' onClick={this.handleClick}>Click Me</button>
-                <div class="row pt-4">
-                    <div class="col-md-12">
-                        <h5>
-                            Filters Applied:
-                            <span class="badge badge-secondary">Year - </span>
-                            <span class="badge badge-secondary">Gender - </span>
-                            <span class="badge badge-secondary">Ethnicity - </span>
-                        </h5>
-                    </div>
-                </div>
+                <FiltersApplied/>
                 </div>
             )
         }
