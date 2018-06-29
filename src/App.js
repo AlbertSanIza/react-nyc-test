@@ -8,10 +8,10 @@ class Chart extends Component {
         super(props)
         this.state = {
             data: {
-                labels: ["Names", "Names", "Names", "Names", "Names", "Names", "Names", "Names", "Names", "Names"],
+                labels: ["", "", "", "", "", "", "", "", "", ""],
                 datasets: [{
                     label: 'Top 10',
-                    data: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
+                    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                     borderWidth: 2
                 }]
             }
