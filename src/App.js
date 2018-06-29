@@ -56,7 +56,7 @@ class App extends Component {
         axios.get('mock-data.json').then(response => {
             var responseData = response.data.data
             for(var i = 0; i < responseData.length; i++) {
-                responseData[i] = [responseData[i][8], responseData[i][9], responseData[i][10]]
+                responseData[i] = [responseData[i][8], responseData[i][9], responseData[i][10], responseData[i][11]]
             }
             this.setState({loaded: true, serverData: responseData, filterOptions: this.getFilterOptions(responseData)})
         })
