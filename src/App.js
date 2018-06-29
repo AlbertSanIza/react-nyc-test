@@ -113,7 +113,7 @@ class App extends Component {
     render() {
         if(!this.state.loading) {
             return(
-                <div>
+                <div className="app">
                 <div className="row pt-3">
                 <div className="col-md-12">
                 <Chart data={this.state.filteredData} width={400} heigth={150}/>
