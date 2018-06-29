@@ -4,7 +4,6 @@ import { PropagateLoader } from 'react-spinners'
 import Chart from './Chart.js'
 import Filter from './Filter.js'
 import FilterList from './FilterList.js'
-import './App.css'
 
 class App extends Component {
     constructor() {
