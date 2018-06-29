@@ -78,6 +78,7 @@ class App extends Component {
             filtersAppliedList: []
         }
         this.getServerData()
+        this.updateFiltersAppliedList = this.updateFiltersAppliedList.bind(this)
     }
     getServerData() {
         axios.get('mock-data.json').then(response => {
@@ -135,9 +136,9 @@ class App extends Component {
                 </div>
                 </div>
                 <div className="row pt-3">
-                <Filter title="Year" options={this.state.filterOptions[0]} onFilterChange={this.handleFilterChange}/>
-                <Filter title="Gender" options={this.state.filterOptions[1]} onFilterChange={this.handleFilterChange}/>
-                <Filter title="Ethnicity" options={this.state.filterOptions[2]} onFilterChange={this.handleFilterChange}/>
+                <Filter title="Year" options={this.state.filterOptions[0]} onFilterChange={this.updateFiltersAppliedList}/>
+                <Filter title="Gender" options={this.state.filterOptions[1]} onFilterChange={this.updateFiltersAppliedList}/>
+                <Filter title="Ethnicity" options={this.state.filterOptions[2]} onFilterChange={this.updateFiltersAppliedList}/>
                 </div>
                 <FiltersApplied list={this.state.filtersAppliedList}/>
                 </div>
