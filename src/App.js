@@ -68,7 +68,7 @@ class App extends Component {
     constructor() {
         super()
         this.state = {
-            loaded: false,
+            loading: true,
             serverData: [],
             filterOptions: []
         }
@@ -80,7 +80,7 @@ class App extends Component {
             for(var i = 0; i < responseData.length; i++) {
                 responseData[i] = [responseData[i][8], responseData[i][9], responseData[i][10], responseData[i][11]]
             }
-            this.setState({loaded: true, serverData: responseData, filterOptions: this.getFilterOptions(responseData)})
+            this.setState({loading: false, serverData: responseData, filterOptions: this.getFilterOptions(responseData)})
         })
     }
     getFilterOptions(data) {
@@ -107,7 +107,7 @@ class App extends Component {
         return filters
     }
     render() {
-        if(this.state.loaded) {
+        if(!this.state.loading) {
             return(
                 <div>
                 <div className="row pt-3">
