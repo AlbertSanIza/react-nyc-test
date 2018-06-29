@@ -42,8 +42,8 @@ class Filter extends Component {
         return(
             <div className="col-sm-4 form-group">
             <label>{this.props.title}:</label>
-            <select className="form-control" value={this.state.value} onChange={this.handleFilterChange}>
-            {this.props.options.map((y, z) => <option key={z} value={y}>{y}</option>)}
+            <select className="form-control" value={this.state.value} onChange={this.handleFilterChange} disabled={this.props.options ? (this.props.options.length < 1) : true}>
+            {this.props.options ? (this.props.options.map((y, z) => <option key={z} value={y}>{y}</option>)) : false}
             </select>
             </div>
         )
