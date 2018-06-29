@@ -3,14 +3,22 @@ import axios from 'axios'
 import './App.css'
 
 class Filter extends Component {
+    constructor() {
+        super()
+        this.state = {
+            value: "ALL"
+        }
+        this.handleSelectChange = this.handleSelectChange.bind(this)
+    }
+    handleSelectChange(evt) {
+        this.setState({value: evt.target.value})
+    }
     render() {
         return(
             <div className="col-sm-4 form-group">
             <label>{this.props.title}:</label>
-            <select className="form-control">
-            <option>All</option>
-            <option>1</option>
-            <option>2</option>
+            <select className="form-control" value={this.state.value} onChange={this.handleSelectChange}>
+            <option value="ALL">ALL</option>
             </select>
             </div>
         )
