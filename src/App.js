@@ -26,14 +26,17 @@ class App extends Component {
         }
         this.handleClick = this.handleClick.bind(this)
     }
-    handleClick() {
+    loadServerData() {
         axios.get('mock-data.json').then(response => {
             var responseData = response.data.data
             for (var i = 0; i < responseData.length; i++) {
                 responseData[i] = [responseData[i][8], responseData[i][9], responseData[i][10]]
             }
-            this.setState({serverData: responseData})
+            this.setState({loaded: true, serverData: responseData})
         })
+    }
+    handleClick() {
+        this.loadServerData()
     }
     render() {
         return (
