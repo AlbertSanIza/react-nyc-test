@@ -54,7 +54,7 @@ class FiltersApplied extends Component {
             <div className="col-md-12">
             <h5>
             Filters Applied:
-            {this.props.list.map(z => <span className="badge badge-secondary">{z.name} - {z.value}</span>)}
+            {this.props.list.map(z => <span className="badge badge-secondary">{z.title} - {z.value}</span>)}
             </h5>
             </div>
             </div>
