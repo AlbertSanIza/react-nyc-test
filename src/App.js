@@ -4,7 +4,7 @@ import './App.css'
 
 class Filter extends Component {
     render() {
-        return (
+        return(
             <div className="col-sm-4 form-group">
             <label>{this.props.title}:</label>
             <select className="form-control">
