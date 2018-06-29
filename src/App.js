@@ -12,12 +12,8 @@ class App extends Component {
             loading: true,
             serverData: [],
             filteredData: {
-                labels: ["", "", "", "", "", "", "", "", "", ""],
-                datasets: [{
-                    label: 'Top 10',
-                    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                    borderWidth: 2
-                }]
+                labels: [],
+                datasets: []
             },
             filterOptions: [],
             filterAppliedList: []
@@ -109,9 +105,7 @@ class App extends Component {
         return {
             labels: labels,
             datasets: [{
-                label: 'Top 10',
                 data: datasetData,
-                borderWidth: 2
             }]
         }
     }
@@ -121,7 +115,7 @@ class App extends Component {
                 <div>
                 <div className="row pt-3">
                 <div className="col-md-12">
-                <Chart labels={["hola", "perr", "gayo"]} datasets={[{data: [0, 1, 2, 3]}]} width={400} heigth={150}/>
+                <Chart data={this.state.filteredData} width={400} heigth={150}/>
                 </div>
                 </div>
                 <div className="row pt-3">
