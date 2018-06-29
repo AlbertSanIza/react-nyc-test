@@ -127,10 +127,13 @@ class App extends Component {
         this.updateFilteredData(this.state.serverData, filterAppliedListCopy)
     }
     updateFilteredData(data, filters) {
-        var nameCount = data.reduce((y, z) => z[3] in y ? (y[z[3]]++, y) : (y[z[3]] = 1, y), {})
+        var filteredArray = data.slice()
+        var headers = filteredArray[0]
+        filteredArray.shift()
+        filteredArray = filteredArray.reduce((y, z) => z[3] in y ? (y[z[3]]++, y) : (y[z[3]] = 1, y), {})
         var sortable = []
-        for(var name in nameCount) {
-            sortable.push([name, nameCount[name]])
+        for(var name in filteredArray) {
+            sortable.push([name, filteredArray[name]])
         }
         sortable.sort((y, z) => z[1] - y[1])
         var labels = []
