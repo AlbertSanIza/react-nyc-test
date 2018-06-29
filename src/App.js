@@ -34,7 +34,9 @@ class Filter extends Component {
     }
     handleFilterChange(evt) {
         this.setState({value: evt.target.value})
-        this.props.onFilterChange({title: this.props.title, value: evt.target.value})
+        if (typeof this.props.onFilterChange === "function") {
+            this.props.onFilterChange({title: this.props.title, value: evt.target.value})
+        }
     }
     render() {
         return(
