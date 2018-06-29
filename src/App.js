@@ -121,7 +121,7 @@ class App extends Component {
                 </div>
                 <div className="row pt-3">
                 <div className="col-md-12">
-                <Chart data={this.state.filteredData} width={400} heigth={150}/>
+                <Chart data={this.state.filteredData} width={500} heigth={150}/>
                 </div>
                 </div>
                 <div className="row pt-3">
