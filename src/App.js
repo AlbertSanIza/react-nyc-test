@@ -161,7 +161,6 @@ class App extends Component {
                     switch (y[0]) {
                         case "CHILD'S FIRST NAME":
                         return ""
-                        break
                         default:
                         return <Filter key={z} options={y} onFilterChange={this.updatefilterAppliedList}/>
                     }
