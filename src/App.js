@@ -130,9 +130,9 @@ class App extends Component {
                 </div>
                 </div>
                 <div className="row pt-3">
-                <Filter title="Year" options={this.state.filterOptions[0]}/>
-                <Filter title="Gender" options={this.state.filterOptions[1]}/>
-                <Filter title="Ethnicity" options={this.state.filterOptions[2]}/>
+                <Filter title="Year" options={this.state.filterOptions[0]} onFilterChange={this.handleFilterChange}/>
+                <Filter title="Gender" options={this.state.filterOptions[1]} onFilterChange={this.handleFilterChange}/>
+                <Filter title="Ethnicity" options={this.state.filterOptions[2]} onFilterChange={this.handleFilterChange}/>
                 </div>
                 <FiltersApplied list={this.state.filtersAppliedList}/>
                 </div>
