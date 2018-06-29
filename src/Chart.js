@@ -24,16 +24,16 @@ class Chart extends Component {
             }
         }
     }
-    updateChart = memoize((labels, datasets) => {
-        if (labels && datasets) {
-            this.setState({data: {
-                labels: labels,
-                datasets: datasets
-            }})
+    updateChart = memoize(data => {
+        if (data) {
+            this.setState({data: data})
         }
     })
     componentDidMount() {
-        this.updateChart(this.props.labels, this.props.datasets)
+        this.updateChart(this.props.data)
+    }
+    componentDidUpdate() {
+        this.updateChart(this.props.data)
     }
     render() {
         return(
