@@ -49,16 +49,39 @@ class App extends Component {
             loaded: false,
             serverData: []
         }
-        this.loadServerData()
+        this.getServerData()
     }
-    loadServerData() {
+    getServerData() {
         axios.get('mock-data.json').then(response => {
             var responseData = response.data.data
-            for (var i = 0; i < responseData.length; i++) {
+            for(var i = 0; i < responseData.length; i++) {
                 responseData[i] = [responseData[i][8], responseData[i][9], responseData[i][10]]
             }
-            this.setState({loaded: true, serverData: responseData})
+            this.setState({loaded: true, serverData: responseData, filterOptions: this.getFilterOptions(responseData)})
         })
+    }
+    getFilterOptions(data) {
+        var filters = []
+        if(data[0].length > 0) {
+            for(var a = 0; a < data[0].length; a++) {
+                filters.push(["ALL"])
+            }
+            for(var i = 0; i < data.length; i++) {
+                for(var j = 0; j < data[i].length; j++) {
+                    var found = false
+                    for (var k = 0; k < filters[j].length; k++) {
+                        if (filters[j][k] === data[i][j]) {
+                            found = true
+                            break
+                        }
+                    }
+                    if (!found) {
+                        filters[j].push(data[i][j])
+                    }
+                }
+            }
+        }
+        return filters
     }
     render() {
         if(this.state.loaded) {
