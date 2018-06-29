@@ -113,7 +113,7 @@ class App extends Component {
     render() {
         if(!this.state.loading) {
             return(
-                <div className="app">
+                <div className="fade-in">
                 <div className="row pt-3">
                 <div className="col-md-12">
                 <Chart data={this.state.filteredData} width={400} heigth={150}/>
