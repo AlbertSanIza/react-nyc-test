@@ -15,6 +15,7 @@ class App extends Component {
             for (var i = 0; i < responseData.length; i++) {
                 responseData[i] = [responseData[i][8], responseData[i][9], responseData[i][10]]
             }
+            this.setState({serverData: responseData})
         })
     }
     render() {
