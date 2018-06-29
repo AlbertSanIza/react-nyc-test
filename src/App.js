@@ -41,7 +41,6 @@ class App extends Component {
             loaded: false,
             serverData: []
         }
-        this.handleClick = this.handleClick.bind(this)
     }
     loadServerData() {
         axios.get('mock-data.json').then(response => {
@@ -51,9 +50,6 @@ class App extends Component {
             }
             this.setState({loaded: true, serverData: responseData})
         })
-    }
-    handleClick() {
-        this.loadServerData()
     }
     render() {
         this.loadServerData()
@@ -65,7 +61,6 @@ class App extends Component {
                 <Filter title="Gender" options={this.yearFilter}/>
                 <Filter title="Ethnicity" options={this.yearFilter}/>
                 </div>
-                <button className='button' onClick={this.handleClick}>Click Me</button>
                 <FiltersApplied/>
                 </div>
             )
