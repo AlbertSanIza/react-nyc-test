@@ -41,6 +41,7 @@ class App extends Component {
             loaded: false,
             serverData: []
         }
+        this.loadServerData()
     }
     loadServerData() {
         axios.get('mock-data.json').then(response => {
@@ -52,7 +53,6 @@ class App extends Component {
         })
     }
     render() {
-        this.loadServerData()
         if(this.state.loaded) {
             return(
                 <div>
