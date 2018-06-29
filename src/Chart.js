@@ -32,8 +32,10 @@ class Chart extends Component {
             }})
         }
     })
-    render() {
+    componentDidMount() {
         this.updateChart(this.props.labels, this.props.datasets)
+    }
+    render() {
         return(
             <Bar data={this.state.data} options={this.state.options} width={this.props.width} height={this.props.height}/>
         )
