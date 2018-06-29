@@ -163,7 +163,15 @@ class App extends Component {
                 <div>
                 <div className="row pt-3">
                 <div className="col-md-12">
-                <Bar data={this.state.filteredData} width={400} height={150}/>
+                <Bar data={this.state.filteredData} options={{
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }}width={400} height={150}/>
                 </div>
                 </div>
                 <div className="row pt-3">
