@@ -8,9 +8,9 @@ class Filter extends Component {
             <div className="col-sm-4 form-group">
             <label>{this.props.title}:</label>
             <select className="form-control">
-                <option>All</option>
-                <option>1</option>
-                <option>2</option>
+            <option>All</option>
+            <option>1</option>
+            <option>2</option>
             </select>
             </div>
         )
