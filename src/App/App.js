@@ -1,6 +1,22 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import './App.css'
+
+class Filter extends Component {
+    render() {
+        return (
+            <div className="col-sm-4 form-group">
+            <label>{this.props.title}:</label>
+            <select className="form-control">
+                <option>All</option>
+                <option>1</option>
+                <option>2</option>
+            </select>
+            </div>
+        )
+    }
+}
+
 class App extends Component {
     constructor() {
         super()
@@ -21,6 +37,11 @@ class App extends Component {
     render() {
         return (
             <div>
+            <div className="row pt-3">
+            <Filter title="Year"/>
+            <Filter title="Gender"/>
+            <Filter title="Ethnicity"/>
+            </div>
             <button className='button' onClick={this.handleClick}>Click Me</button>
             </div>
         )
