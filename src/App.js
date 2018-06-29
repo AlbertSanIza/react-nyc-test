@@ -69,7 +69,12 @@ class App extends Component {
     }
     getServerData() {
         axios.get('mock-data.json').then(response => {
+            var columnName = []
+            for (var i = 0; i < response.data.meta.view.columns.length; i++) {
+                columnName.push(response.data.meta.view.columns[i].name)
+            }
             var responseData = response.data.data
+            responseData.unshift(columnName)
             for(var i = 0; i < responseData.length; i++) {
                 responseData[i] = [
                     responseData[i][8], responseData[i][9], responseData[i][10], responseData[i][11].toUpperCase()
