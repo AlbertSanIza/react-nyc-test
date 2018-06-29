@@ -30,16 +30,16 @@ class Filter extends Component {
         this.state = {
             value: "ALL"
         }
-        this.handleSelectChange = this.handleSelectChange.bind(this)
+        this.handleFilterChange = this.handleFilterChange.bind(this)
     }
-    handleSelectChange(evt) {
+    handleFilterChange(evt) {
         this.setState({value: evt.target.value})
     }
     render() {
         return(
             <div className="col-sm-4 form-group">
             <label>{this.props.title}:</label>
-            <select className="form-control" value={this.state.value} onChange={this.handleSelectChange}>
+            <select className="form-control" value={this.state.value} onChange={this.handleFilterChange}>
             {this.props.options.map((x, y) => <option key={y} value={x}>{x}</option>)}
             </select>
             </div>
