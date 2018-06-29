@@ -20,6 +20,7 @@ class Filter extends Component {
             <select className="form-control" value={this.state.value} onChange={this.handleSelectChange}>
             <option value="ALL">ALL</option>
             </select>
+            {this.props.options}
             </div>
         )
     }
@@ -47,7 +48,8 @@ class App extends Component {
         super()
         this.state = {
             loaded: false,
-            serverData: []
+            serverData: [],
+            filterOptions: []
         }
         this.getServerData()
     }
@@ -88,9 +90,9 @@ class App extends Component {
             return(
                 <div>
                 <div className="row pt-3">
-                <Filter title="Year" options={this.yearFilter}/>
-                <Filter title="Gender" options={this.yearFilter}/>
-                <Filter title="Ethnicity" options={this.yearFilter}/>
+                <Filter title="Year" options={this.state.filterOptions[0]}/>
+                <Filter title="Gender" options={this.state.filterOptions[1]}/>
+                <Filter title="Ethnicity" options={this.state.filterOptions[2]}/>
                 </div>
                 <FiltersApplied/>
                 </div>
