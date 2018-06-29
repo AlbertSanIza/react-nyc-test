@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { SyncLoader } from 'react-spinners'
 import Chart from './Chart.js'
 import Filter from './Filter.js'
 import FilterList from './FilterList.js'
@@ -132,7 +133,13 @@ class App extends Component {
                 </div>
             )
         }
-        return "Loading..."
+        return(
+            <div className="row pt-3">
+            <div className="col-md-12 loading-container">
+            <SyncLoader color={'#123abc'}/>
+            </div>
+            </div>
+        )
     }
 }
 
