@@ -87,7 +87,7 @@ class App extends Component {
                     default: break
                 }
             }
-            this.setState({loading: false, serverData: responseData, filterOptions: this.getFilterOptions(responseData)})
+            this.setState({loading: false, serverData: responseData, filteredData: this.updateFilteredData(responseData), filterOptions: this.getFilterOptions(responseData)})
         })
     }
     getFilterOptions(data) {
