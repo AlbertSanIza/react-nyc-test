@@ -17,10 +17,15 @@ class App extends Component {
             filterOption: [],
             filterList: []
         }
+        this.handleDataChange = this.handleDataChange.bind(this)
+        this.handleFilterOptionChange = this.handleFilterOptionChange.bind(this)
         this.handleFilterListChange = this.handleFilterListChange.bind(this)
     }
     handleDataChange = data => {
-        this.setState({data: data, filterOptions: this.getFilterOptions(data)})
+        this.setState({data: data})
+    }
+    handleFilterOptionChange = data => {
+        this.setState({filterOption: data})
     }
     handleFilterListChange = data => {
         var filterList = this.state.filterList.filter(z => z.title !== data.title)
