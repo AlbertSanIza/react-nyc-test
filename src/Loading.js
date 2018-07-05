@@ -7,7 +7,7 @@ class Loading extends Component {
             <div className="row pt-3">
             <div className="col-md-12 loading-container">
             <div>
-            <PropagateLoader color={'#00ccff'} size={26}/>
+            <PropagateLoader color={'#00bcd4'} size={26}/>
             </div>
             </div>
             </div>
