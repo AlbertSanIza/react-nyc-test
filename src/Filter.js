@@ -19,7 +19,7 @@ class Filter extends Component {
             <div className="col-sm-4 form-group">
             <div className="card">
             <div className="card-body">
-            <label>{this.props.options[0] ? this.props.options[0] : "Title"}:</label>
+            <label>{this.props.options[0] ? this.props.options[0] : ""}:</label>
             <select className="form-control" value={this.state.value} onChange={this.handleFilterChange} disabled={this.props.options ? (this.props.options.length < 2) : true}>
             {this.props.options ? (this.props.options.map((y, z) => z > 0 ? <option key={z} value={y}>{y}</option> : "")) : false}
             </select>
