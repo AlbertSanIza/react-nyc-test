@@ -17,7 +17,9 @@ class Data extends Component {
             for(var i = 0; i < responseData.length; i++) {
                 var smallArray = []
                 for (var j = 0; j < this.props.list.length; j++) {
-                    smallArray.push(responseData[i][columnName.indexOf(this.props.list[j])].toUpperCase())
+                    if(columnName.indexOf(this.props.list[j]) !== -1) {
+                        smallArray.push(responseData[i][columnName.indexOf(this.props.list[j])].toUpperCase())
+                    }
                 }
                 responseData[i] = smallArray
                 switch(responseData[i][2]) {
@@ -43,7 +45,9 @@ class Data extends Component {
         for(var i = 0; i < arrayData.length; i++) {
             var smallArray = []
             for (var j = 0; j < this.props.filter.length; j++) {
-                smallArray.push(arrayData[i][data[0].indexOf(this.props.filter[j])].toUpperCase())
+                if(data[0].indexOf(this.props.filter[j]) !== -1) {
+                    smallArray.push(arrayData[i][data[0].indexOf(this.props.filter[j])].toUpperCase())
+                }
             }
             arrayData[i] = smallArray
         }
