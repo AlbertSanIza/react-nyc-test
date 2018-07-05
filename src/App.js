@@ -34,29 +34,6 @@ class App extends Component {
         }
         this.setState({filterList: filterList})
     }
-    getFilterOptions = data => {
-        var filters = []
-        if(data[0].length > 0) {
-            for(var a = 0; a < data[0].length; a++) {
-                filters.push([data[0][a], "ALL"])
-            }
-            for(var i = 1; i < data.length; i++) {
-                for(var j = 0; j < data[i].length; j++) {
-                    var found = false
-                    for(var k = 0; k < filters[j].length; k++) {
-                        if(filters[j][k] === data[i][j]) {
-                            found = true
-                            break
-                        }
-                    }
-                    if(!found) {
-                        filters[j].push(data[i][j])
-                    }
-                }
-            }
-        }
-        return filters
-    }
     render() {
         return(
             <div>
