@@ -12,6 +12,7 @@ class App extends Component {
         this.state = {
             columnList: ["YEAR OF BIRTH", "GENDER", "ETHNICITY", "CHILD'S FIRST NAME"],
             columnFilter: ["YEAR OF BIRTH", "GENDER", "ETHNICITY"],
+            columnMain: "CHILD'S FIRST NAME",
             data: [],
             filterList: [],
             filteredData: {
