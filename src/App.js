@@ -18,7 +18,6 @@ class App extends Component {
             filterOptions: [],
             filterAppliedList: []
         }
-        this.getServerData()
         this.updatefilterAppliedList = this.updatefilterAppliedList.bind(this)
     }
     getServerData() {
