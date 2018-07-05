@@ -3,7 +3,7 @@ html, body {
     height: 100%;
     background: #020C15;
 }
-h2 {
+h2, h5 {
     color: #FFF8F0;
 }
 .badge-secondary {
