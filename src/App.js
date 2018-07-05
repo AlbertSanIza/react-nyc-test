@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+import Data from './Data.js'
 import Chart from './Chart.js'
 import Filter from './Filter.js'
 import FilterList from './FilterList.js'
