@@ -16,13 +16,19 @@ class App extends Component {
                 labels: [],
                 datasets: []
             },
-            filterOptions: [],
-            filterAppliedList: []
+            filterOptions: []
         }
-        this.updatefilterAppliedList = this.updatefilterAppliedList.bind(this)
+        this.handleFilterListChange = this.handleFilterListChange.bind(this)
     }
     handleDataChange = data => {
-        this.setState({data: data, filteredData: this.updateFilteredData(data, this.state.filterAppliedList), filterOptions: this.getFilterOptions(data)})
+        this.setState({data: data, filteredData: this.updateFilteredData(data, this.state.filterList), filterOptions: this.getFilterOptions(data)})
+    }
+    handleFilterListChange = data => {
+        var filterList = this.state.filterList.filter(z => z.title !== data.title)
+        if(data.value !== "ALL") {
+            filterList.push(data)
+        }
+        this.setState({filterList: filterList})
     }
     getFilterOptions(data) {
         var filters = []
@@ -46,13 +52,6 @@ class App extends Component {
             }
         }
         return filters
-    }
-    updatefilterAppliedList(data) {
-        var filterAppliedListCopy = this.state.filterAppliedList.filter(z => z.title !== data.title)
-        if(data.value !== "ALL") {
-            filterAppliedListCopy.push(data)
-        }
-        this.setState({filterAppliedList: filterAppliedListCopy, filteredData: this.updateFilteredData(this.state.data, filterAppliedListCopy)})
     }
     updateFilteredData(data, filters) {
         var filteredArray = data.slice()
@@ -108,7 +107,7 @@ class App extends Component {
                 return <Loading/>
             })()}
             <div className="row pt-3">
-            {this.state.filterOptions.map((y, z) => <Filter key={z} options={y} onFilterChange={this.updatefilterAppliedList}/>)}
+            {this.state.filterOptions.map((y, z) => <Filter key={z} options={y} onFilterChange={this.handleFilterListChange}/>)}
             </div>
             <FilterList data={this.state.filterList}/>
             </div>
