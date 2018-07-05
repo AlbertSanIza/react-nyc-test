@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 
 import Chart from './Chart.js'
 import Filter from './Filter.js'
