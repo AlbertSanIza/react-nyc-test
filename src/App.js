@@ -15,10 +15,6 @@ class App extends Component {
             columnMain: "CHILD'S FIRST NAME",
             data: [],
             filterList: [],
-            filteredData: {
-                labels: [],
-                datasets: []
-            },
             filterOptions: []
         }
         this.handleFilterListChange = this.handleFilterListChange.bind(this)
