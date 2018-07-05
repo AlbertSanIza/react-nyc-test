@@ -24,7 +24,7 @@ class App extends Component {
         this.handleFilterListChange = this.handleFilterListChange.bind(this)
     }
     handleDataChange = data => {
-        this.setState({data: data, filteredData: this.updateFilteredData(data, this.state.filterList), filterOptions: this.getFilterOptions(data)})
+        this.setState({data: data, filterOptions: this.getFilterOptions(data)})
     }
     handleFilterListChange = data => {
         var filterList = this.state.filterList.filter(z => z.title !== data.title)
@@ -56,36 +56,6 @@ class App extends Component {
         }
         return filters
     }
-    updateFilteredData(data, filters) {
-        var filteredArray = data.slice()
-        var headers = filteredArray[0]
-        filteredArray.shift()
-        filters.forEach(x => {
-            filteredArray = filteredArray.filter(z => {
-                return z[headers.indexOf(x.title)] === x.value
-            })
-        })
-        filteredArray = filteredArray.reduce((y, z) => z[3] in y ? (y[z[3]]++, y) : (y[z[3]] = 1, y), {})
-        var sortable = []
-        for(var name in filteredArray) {
-            sortable.push([name, filteredArray[name]])
-        }
-        var labels = []
-        var datasetData = []
-        if(sortable.length > 0) {
-            sortable.sort((y, z) => z[1] - y[1])
-            for(var i = 0; i < (sortable.length > 10 ? 10 : sortable.length); i++) {
-                labels.push(sortable[i][0])
-                datasetData.push(sortable[i][1])
-            }
-        }
-        return {
-            labels: labels,
-            datasets: [{
-                data: datasetData
-            }]
-        }
-    }
     render() {
         return(
             <div>
@@ -101,7 +71,7 @@ class App extends Component {
                         </div>
                         <div className="row pt-3">
                         <div className="col-md-12">
-                        <Chart data={this.state.filteredData} width={500} heigth={150}/>
+                        <Chart data={this.state.data} filter={this.state.filterList} main={this.state.columnMain} width={500} heigth={150}/>
                         </div>
                         </div>
                         </div>
