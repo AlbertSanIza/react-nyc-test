@@ -14,7 +14,7 @@ class FilterList extends Component {
                 </div>
             )
         }
-        return ""
+        return null
     }
 }
 
