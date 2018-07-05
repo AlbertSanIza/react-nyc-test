@@ -11,6 +11,7 @@ class App extends Component {
         super()
         this.state = {
             data: [],
+            filterList: [],
             filteredData: {
                 labels: [],
                 datasets: []
@@ -109,7 +110,7 @@ class App extends Component {
             <div className="row pt-3">
             {this.state.filterOptions.map((y, z) => <Filter key={z} options={y} onFilterChange={this.updatefilterAppliedList}/>)}
             </div>
-            <FilterList data={this.state.filterAppliedList}/>
+            <FilterList data={this.state.filterList}/>
             </div>
         )
     }
