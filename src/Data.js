@@ -12,13 +12,13 @@ class Data extends Component {
             response.data.meta.view.columns.forEach(z => {
                 columnName.push(z.name.toUpperCase())
             })
-            var responseData = response.data.data
+            var responseData = response.data.data.slice()
             responseData.unshift(columnName)
             for(var i = 0; i < responseData.length; i++) {
                 responseData[i] = [
                     responseData[i][8], responseData[i][9], responseData[i][10], responseData[i][11].toUpperCase()
                 ]
-                switch (responseData[i][2]) {
+                switch(responseData[i][2]) {
                     case "WHITE NON HISP":
                     responseData[i][2] = "WHITE NON HISPANIC"
                     break

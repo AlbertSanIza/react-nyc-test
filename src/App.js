@@ -7,8 +7,8 @@ import FilterList from './FilterList.js'
 import Loading from './Loading.js'
 
 class App extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             columnList: ["YEAR OF BIRTH", "GENDER", "ETHNICITY", "CHILD'S FIRST NAME"],
             columnFilter: ["YEAR OF BIRTH", "GENDER", "ETHNICITY"],
@@ -29,7 +29,7 @@ class App extends Component {
         }
         this.setState({filterList: filterList})
     }
-    getFilterOptions(data) {
+    getFilterOptions = data => {
         var filters = []
         if(data[0].length > 0) {
             for(var a = 0; a < data[0].length; a++) {
@@ -38,13 +38,13 @@ class App extends Component {
             for(var i = 1; i < data.length; i++) {
                 for(var j = 0; j < data[i].length; j++) {
                     var found = false
-                    for (var k = 0; k < filters[j].length; k++) {
-                        if (filters[j][k] === data[i][j]) {
+                    for(var k = 0; k < filters[j].length; k++) {
+                        if(filters[j][k] === data[i][j]) {
                             found = true
                             break
                         }
                     }
-                    if (!found) {
+                    if(!found) {
                         filters[j].push(data[i][j])
                     }
                 }

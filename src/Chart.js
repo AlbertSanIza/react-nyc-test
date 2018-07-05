@@ -24,6 +24,12 @@ class Chart extends Component {
             }
         }
     }
+    componentDidMount = () => {
+        this.updateChart(this.props.data, this.props.filter, this.props.main)
+    }
+    componentDidUpdate = () => {
+        this.updateChart(this.props.data, this.props.filter, this.props.main)
+    }
     updateChart = memoize((data, filter, main) => {
         var array = data.slice()
         var headers = array.shift()
@@ -64,12 +70,6 @@ class Chart extends Component {
             }]
         }})
     })
-    componentDidMount() {
-        this.updateChart(this.props.data, this.props.filter, this.props.main)
-    }
-    componentDidUpdate() {
-        this.updateChart(this.props.data, this.props.filter, this.props.main)
-    }
     render() {
         return(
             <Bar data={this.state.data} options={this.state.options} width={this.props.width} height={this.props.height}/>
