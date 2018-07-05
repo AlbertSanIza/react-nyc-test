@@ -71,7 +71,7 @@ class App extends Component {
         var datasetData = []
         if(sortable.length > 0) {
             sortable.sort((y, z) => z[1] - y[1])
-            for(var i = 0; i < 10; i++) {
+            for(var i = 0; i < (sortable.length > 10 ? 10 : sortable.length); i++) {
                 labels.push(sortable[i][0])
                 datasetData.push(sortable[i][1])
             }
