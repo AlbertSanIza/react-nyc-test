@@ -50,25 +50,25 @@ class Chart extends Component {
                 dataset.push(sortable[i][1])
             }
         }
-        this.setState({data: {
-            labels: labels,
-            datasets: [{
-                data: dataset,
-                borderWidth: 3,
-                backgroundColor: [
-                    'rgba(0, 255, 153, 0.5)',
-                    'rgba(28, 255, 153, 0.5)',
-                    'rgba(56, 255, 153, 0.5)',
-                    'rgba(85, 255, 153, 0.5)',
-                    'rgba(113, 255, 153, 0.5)',
-                    'rgba(141, 255, 153, 0.5)',
-                    'rgba(170, 255, 153, 0.5)',
-                    'rgba(198, 255, 153, 0.5)',
-                    'rgba(226, 255, 153, 0.5)',
-                    'rgba(255, 255, 153, 0.5)'
-                ]
-            }]
-        }})
+        this.setState({
+            data: canvas => {
+                const ctx = canvas.getContext("2d")
+                const gradient = ctx.createLinearGradient(50, 0, 0, 250)
+                gradient.addColorStop(0, "rgba(149, 117, 205, 0.5)")
+                gradient.addColorStop(1, "#0d47a1")
+                return {
+                    labels: labels,
+                    datasets: [{
+                        data: dataset,
+                        borderWidth: 3,
+                        hoverBorderWidth: 1,
+                        backgroundColor: gradient,
+                        hoverBackgroundColor: gradient,
+                        hoverBorderColor: 'black'
+                    }]
+                }
+            }
+        })
     })
     render() {
         return(
