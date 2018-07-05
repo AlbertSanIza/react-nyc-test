@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { PropagateLoader } from 'react-spinners'
+
 import Chart from './Chart.js'
 import Filter from './Filter.js'
 import FilterList from './FilterList.js'
+import Loading from './Loading.js'
 
 class App extends Component {
     constructor() {
@@ -138,13 +139,7 @@ class App extends Component {
             )
         }
         return(
-            <div className="row pt-3">
-            <div className="col-md-12 loading-container">
-            <div>
-            <PropagateLoader color={'#00ccff'} size={26}/>
-            </div>
-            </div>
-            </div>
+            <Loading/>
         )
     }
 }
