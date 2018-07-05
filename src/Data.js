@@ -4,9 +4,6 @@ import axios from 'axios'
 class Data extends Component {
     constructor(props) {
         super(props)
-        this.state = {
-            server: []
-        }
         this.getServerData()
     }
     getServerData = () => {
