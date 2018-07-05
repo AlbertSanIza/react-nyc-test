@@ -55,7 +55,7 @@ class App extends Component {
     render() {
         return(
             <div>
-            <Data list={this.state.columnList} onDataChange={this.handleDataChange}/>
+            <Data list={this.state.columnList} filter={this.state.columnFilter} onDataChange={this.handleDataChange} onFilterOptionChange={this.handleFilterOptionChange}/>
             {(() => {
                 if(this.state.data.length > 0) {
                     return(
