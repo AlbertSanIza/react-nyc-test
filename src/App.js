@@ -107,14 +107,7 @@ class App extends Component {
                 return <Loading/>
             })()}
             <div className="row pt-3">
-            {this.state.filterOptions.map((y, z) => {
-                switch(y[0]) {
-                    case "CHILD'S FIRST NAME":
-                    return ""
-                    default:
-                    return <Filter key={z} options={y} onFilterChange={this.updatefilterAppliedList}/>
-                }
-            })}
+            {this.state.filterOptions.map((y, z) => <Filter key={z} options={y} onFilterChange={this.updatefilterAppliedList}/>)}
             </div>
             <FilterList data={this.state.filterAppliedList}/>
             </div>
