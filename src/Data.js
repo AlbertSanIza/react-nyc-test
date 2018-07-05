@@ -15,9 +15,11 @@ class Data extends Component {
             var responseData = response.data.data.slice()
             responseData.unshift(columnName)
             for(var i = 0; i < responseData.length; i++) {
-                responseData[i] = [
-                    responseData[i][8], responseData[i][9], responseData[i][10], responseData[i][11].toUpperCase()
-                ]
+                var smallArray = []
+                for (var j = 0; j < this.props.list.length; j++) {
+                    smallArray.push(responseData[i][columnName.indexOf(this.props.list[j])].toUpperCase())
+                }
+                responseData[i] = smallArray
                 switch(responseData[i][2]) {
                     case "WHITE NON HISP":
                     responseData[i][2] = "WHITE NON HISPANIC"
