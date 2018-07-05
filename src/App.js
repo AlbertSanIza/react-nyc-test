@@ -10,8 +10,7 @@ class App extends Component {
     constructor() {
         super()
         this.state = {
-            loading: true,
-            serverData: [],
+            data: [],
             filteredData: {
                 labels: [],
                 datasets: []
