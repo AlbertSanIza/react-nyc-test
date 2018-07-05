@@ -1,8 +1,14 @@
 html, body {
     width: 100%;
     height: 100%;
-    background: #E0E0E0;
-    background: linear-gradient(#E0E0E0, #B0BEC5);
+    background: #020C15;
+}
+h2 {
+    color: #FFF8F0;
+}
+.badge-secondary {
+    color: #FFF8F0;
+    background: #26a67e;
 }
 .badge {
     margin-left: 7px;

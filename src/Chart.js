@@ -11,12 +11,27 @@ class Chart extends Component {
                 datasets: []
             },
             options: {
+                tooltips: {
+                    displayColors: false
+                },
                 legend: {
                     display: false
                 },
                 scales: {
-                    yAxes: [{
+                    xAxes: [{
+                        gridLines: {
+                            color: "#0a291f"
+                        },
                         ticks: {
+                            fontColor: "#FFF8F0"
+                        }
+                    }],
+                    yAxes: [{
+                        gridLines: {
+                            color: "#0a291f"
+                        },
+                        ticks: {
+                            fontColor: "#FFF8F0",
                             beginAtZero: true
                         }
                     }]
@@ -53,18 +68,18 @@ class Chart extends Component {
         this.setState({
             data: canvas => {
                 const ctx = canvas.getContext("2d")
-                const gradient = ctx.createLinearGradient(50, 0, 0, 250)
-                gradient.addColorStop(0, "rgba(149, 117, 205, 0.5)")
-                gradient.addColorStop(1, "#0d47a1")
+                const gradient = ctx.createLinearGradient(0, 0, 0, 250)
+                gradient.addColorStop(0, "rgba(19, 83, 63, 0.5)")
+                gradient.addColorStop(1, "#30CD9B")
                 return {
                     labels: labels,
                     datasets: [{
                         data: dataset,
                         borderWidth: 3,
-                        hoverBorderWidth: 1,
+                        hoverBorderWidth: 2,
                         backgroundColor: gradient,
                         hoverBackgroundColor: gradient,
-                        hoverBorderColor: 'black'
+                        hoverBorderColor: '#FFF8F0'
                     }]
                 }
             }
