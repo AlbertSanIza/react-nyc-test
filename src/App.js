@@ -14,8 +14,8 @@ class App extends Component {
             columnFilter: ["YEAR OF BIRTH", "GENDER", "ETHNICITY"],
             columnMain: "CHILD'S FIRST NAME",
             data: [],
-            filterList: [],
-            filterOptions: []
+            filterOption: [],
+            filterList: []
         }
         this.handleFilterListChange = this.handleFilterListChange.bind(this)
     }
@@ -76,7 +76,7 @@ class App extends Component {
                 return <Loading/>
             })()}
             <div className="row pt-3">
-            {this.state.filterOptions.map((y, z) => <Filter key={z} options={y} onFilterChange={this.handleFilterListChange}/>)}
+            {this.state.filterOption.map((y, z) => <Filter key={z} options={y} onFilterChange={this.handleFilterListChange}/>)}
             </div>
             <FilterList data={this.state.filterList}/>
             </div>
