@@ -10,6 +10,8 @@ class App extends Component {
     constructor() {
         super()
         this.state = {
+            columnList: ["YEAR OF BIRTH", "GENDER", "ETHNICITY", "CHILD'S FIRST NAME"],
+            columnFilter: ["YEAR OF BIRTH", "GENDER", "ETHNICITY"],
             data: [],
             filterList: [],
             filteredData: {
