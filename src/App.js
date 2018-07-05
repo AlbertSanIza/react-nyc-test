@@ -20,33 +20,8 @@ class App extends Component {
         }
         this.updatefilterAppliedList = this.updatefilterAppliedList.bind(this)
     }
-    getServerData() {
-        axios.get('https://data.cityofnewyork.us/api/views/25th-nujf/rows.json').then(response => {
-            var columnName = []
-            response.data.meta.view.columns.forEach(z => {
-                columnName.push(z.name.toUpperCase())
-            })
-            var responseData = response.data.data
-            responseData.unshift(columnName)
-            for(var i = 0; i < responseData.length; i++) {
-                responseData[i] = [
-                    responseData[i][8], responseData[i][9], responseData[i][10], responseData[i][11].toUpperCase()
-                ]
-                switch (responseData[i][2]) {
-                    case "WHITE NON HISP":
-                    responseData[i][2] = "WHITE NON HISPANIC"
-                    break
-                    case "BLACK NON HISP":
-                    responseData[i][2] = "BLACK NON HISPANIC"
-                    break
-                    case "ASIAN AND PACI":
-                    responseData[i][2] = "ASIAN AND PACIFIC ISLANDER"
-                    break
-                    default: break
-                }
-            }
-            this.setState({loading: false, serverData: responseData, filteredData: this.updateFilteredData(responseData, this.state.filterAppliedList), filterOptions: this.getFilterOptions(responseData)})
-        })
+    handleDataChange = data => {
+        this.setState({data: data, filteredData: this.updateFilteredData(data, this.state.filterAppliedList), filterOptions: this.getFilterOptions(data)})
     }
     getFilterOptions(data) {
         var filters = []
@@ -76,7 +51,7 @@ class App extends Component {
         if(data.value !== "ALL") {
             filterAppliedListCopy.push(data)
         }
-        this.setState({filterAppliedList: filterAppliedListCopy, filteredData: this.updateFilteredData(this.state.serverData, filterAppliedListCopy)})
+        this.setState({filterAppliedList: filterAppliedListCopy, filteredData: this.updateFilteredData(this.state.data, filterAppliedListCopy)})
     }
     updateFilteredData(data, filters) {
         var filteredArray = data.slice()
@@ -109,35 +84,40 @@ class App extends Component {
         }
     }
     render() {
-        if(!this.state.loading) {
-            return(
-                <div className="fade-in">
-                <div className="row pt-4">
-                <div className="col-sm-12">
-                <h2>Top 10: NYC Baby Names <small className="text-muted">by Albert Sanchez</small></h2>
-                </div>
-                </div>
-                <div className="row pt-3">
-                <div className="col-md-12">
-                <Chart data={this.state.filteredData} width={500} heigth={150}/>
-                </div>
-                </div>
-                <div className="row pt-3">
-                {this.state.filterOptions.map((y, z) => {
-                    switch (y[0]) {
-                        case "CHILD'S FIRST NAME":
-                        return ""
-                        default:
-                        return <Filter key={z} options={y} onFilterChange={this.updatefilterAppliedList}/>
-                    }
-                })}
-                </div>
-                <FilterList data={this.state.filterAppliedList}/>
-                </div>
-            )
-        }
         return(
-            <Loading/>
+            <div>
+            <Data onDataChange={this.handleDataChange}/>
+            {(() => {
+                if(this.state.data.length > 0) {
+                    return(
+                        <div className="fade-in">
+                        <div className="row pt-4">
+                        <div className="col-sm-12">
+                        <h2>Top 10: NYC Baby Names <small className="text-muted">by Albert Sanchez</small></h2>
+                        </div>
+                        </div>
+                        <div className="row pt-3">
+                        <div className="col-md-12">
+                        <Chart data={this.state.filteredData} width={500} heigth={150}/>
+                        </div>
+                        </div>
+                        </div>
+                    )
+                }
+                return <Loading/>
+            })()}
+            <div className="row pt-3">
+            {this.state.filterOptions.map((y, z) => {
+                switch(y[0]) {
+                    case "CHILD'S FIRST NAME":
+                    return ""
+                    default:
+                    return <Filter key={z} options={y} onFilterChange={this.updatefilterAppliedList}/>
+                }
+            })}
+            </div>
+            <FilterList data={this.state.filterAppliedList}/>
+            </div>
         )
     }
 }
