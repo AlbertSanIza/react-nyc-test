@@ -11,7 +11,7 @@ h2, h5 {
     background: #26a67e;
 }
 .badge {
-    margin-left: 7px;
+    margin-left: 10px;
 }
 .fade-in {
     -webkit-animation: fadein 2s;
