@@ -4,9 +4,9 @@ import axios from 'axios'
 class Data extends Component {
     constructor(props) {
         super(props)
-        this.getServerData()
+        this.getData()
     }
-    getServerData = () => {
+    getData = () => {
         axios.get('https://data.cityofnewyork.us/api/views/25th-nujf/rows.json').then(response => {
             var columnName = []
             response.data.meta.view.columns.forEach(z => {
