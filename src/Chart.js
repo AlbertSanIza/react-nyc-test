@@ -20,7 +20,7 @@ class Chart extends Component {
                 scales: {
                     xAxes: [{
                         gridLines: {
-                            color: "#0a291f"
+                            color: "#0f3e2f"
                         },
                         ticks: {
                             fontColor: "#FFF8F0"
@@ -28,7 +28,7 @@ class Chart extends Component {
                     }],
                     yAxes: [{
                         gridLines: {
-                            color: "#0a291f"
+                            color: "#0f3e2f"
                         },
                         ticks: {
                             fontColor: "#FFF8F0",
@@ -69,7 +69,7 @@ class Chart extends Component {
             data: canvas => {
                 const ctx = canvas.getContext("2d")
                 const gradient = ctx.createLinearGradient(0, 0, 0, 250)
-                gradient.addColorStop(0, "rgba(19, 83, 63, 0.5)")
+                gradient.addColorStop(0, "rgba(24, 104, 78, 0.4)")
                 gradient.addColorStop(1, "#30CD9B")
                 return {
                     labels: labels,
