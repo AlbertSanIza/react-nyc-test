@@ -11,6 +11,13 @@ class Chart extends Component {
                 datasets: []
             },
             options: {
+                title: {
+                    display: true,
+                    text: "Top 10",
+                    fontColor: "#FFF8F0",
+                    fontFamily: "Montserrat",
+                    fontSize: 16
+                },
                 tooltips: {
                     displayColors: false
                 },
