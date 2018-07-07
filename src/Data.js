@@ -12,27 +12,31 @@ class Data extends Component {
             response.data.meta.view.columns.forEach(z => {
                 columnName.push(z.name.toUpperCase())
             })
-            var responseData = response.data.data
-            responseData.unshift(columnName)
+            response.data.data.unshift(columnName)
             var ethnicityIndex = columnName.indexOf("ETHNICITY")
-            if(ethnicityIndex !== -1) {
-                for(var i = 0; i < responseData.length; i++) {
-                        switch(responseData[i][ethnicityIndex]) {
+            for (var i = 0; i < response.data.data.length; i++) {
+                for (var j = 0; j < response.data.data[i].length; j++) {
+                    if(typeof response.data.data[i][j] === "string") {
+                        response.data.data[i][j] = response.data.data[i][j].toUpperCase()
+                    }
+                    if(ethnicityIndex == j) {
+                        switch(response.data.data[i][j]) {
                             case "WHITE NON HISP":
-                            responseData[i][ethnicityIndex] = "WHITE NON HISPANIC"
+                            response.data.data[i][j] = "WHITE NON HISPANIC"
                             break
                             case "BLACK NON HISP":
-                            responseData[i][ethnicityIndex] = "BLACK NON HISPANIC"
+                            response.data.data[i][j] = "BLACK NON HISPANIC"
                             break
                             case "ASIAN AND PACI":
-                            responseData[i][ethnicityIndex] = "ASIAN AND PACIFIC ISLANDER"
+                            response.data.data[i][j] = "ASIAN AND PACIFIC ISLANDER"
                             break
                             default: break
                         }
+                    }
                 }
             }
-            this.props.onDataChange(responseData)
-            this.getFilterOptions(responseData)
+            this.props.onDataChange(response.data.data)
+            this.getFilterOptions(response.data.data)
         })
     }
     getFilterOptions = data => {
