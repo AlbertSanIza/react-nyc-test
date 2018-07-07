@@ -12,27 +12,23 @@ class Data extends Component {
             response.data.meta.view.columns.forEach(z => {
                 columnName.push(z.name.toUpperCase())
             })
-            var responseData = response.data.data.slice()
+            var responseData = response.data.data
             responseData.unshift(columnName)
-            for(var i = 0; i < responseData.length; i++) {
-                var smallArray = []
-                for (var j = 0; j < this.props.list.length; j++) {
-                    if(columnName.indexOf(this.props.list[j]) !== -1) {
-                        smallArray.push(responseData[i][columnName.indexOf(this.props.list[j])].toUpperCase())
-                    }
-                }
-                responseData[i] = smallArray
-                switch(responseData[i][2]) {
-                    case "WHITE NON HISP":
-                    responseData[i][2] = "WHITE NON HISPANIC"
-                    break
-                    case "BLACK NON HISP":
-                    responseData[i][2] = "BLACK NON HISPANIC"
-                    break
-                    case "ASIAN AND PACI":
-                    responseData[i][2] = "ASIAN AND PACIFIC ISLANDER"
-                    break
-                    default: break
+            var ethnicityIndex = columnName.indexOf("ETHNICITY")
+            if(ethnicityIndex !== -1) {
+                for(var i = 0; i < responseData.length; i++) {
+                        switch(responseData[i][ethnicityIndex]) {
+                            case "WHITE NON HISP":
+                            responseData[i][ethnicityIndex] = "WHITE NON HISPANIC"
+                            break
+                            case "BLACK NON HISP":
+                            responseData[i][ethnicityIndex] = "BLACK NON HISPANIC"
+                            break
+                            case "ASIAN AND PACI":
+                            responseData[i][ethnicityIndex] = "ASIAN AND PACIFIC ISLANDER"
+                            break
+                            default: break
+                        }
                 }
             }
             this.props.onDataChange(responseData)

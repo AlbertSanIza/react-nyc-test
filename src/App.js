@@ -10,7 +10,6 @@ class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            columnList: ["YEAR OF BIRTH", "GENDER", "ETHNICITY", "CHILD'S FIRST NAME"],
             columnFilter: ["YEAR OF BIRTH", "GENDER", "ETHNICITY"],
             columnMain: "CHILD'S FIRST NAME",
             data: [],
@@ -37,7 +36,7 @@ class App extends Component {
     render() {
         return(
             <div>
-            <Data list={this.state.columnList} filter={this.state.columnFilter} onDataChange={this.handleDataChange} onFilterOptionChange={this.handleFilterOptionChange}/>
+            <Data filter={this.state.columnFilter} onDataChange={this.handleDataChange} onFilterOptionChange={this.handleFilterOptionChange}/>
             {(() => {
                 if(this.state.data.length > 0) {
                     return(
