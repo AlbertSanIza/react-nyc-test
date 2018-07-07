@@ -58,7 +58,7 @@ class Chart extends Component {
         filter.forEach(x => {
             array = array.filter(z => z[headers.indexOf(x.title)] === x.value)
         })
-        array = array.reduce((y, z) => z[headers.indexOf(main)] in y ? (y[z[headers.indexOf(main)]]++, y) : (y[z[headers.indexOf(main)]] = 1, y), {})
+        array = array.reduce((y, z) => z[headers.indexOf(main)] in y ? (y[z[headers.indexOf(main)]] += Number(z[headers.indexOf("COUNT")]), y) : (y[z[headers.indexOf(main)]] = Number(z[headers.indexOf("COUNT")]), y), {})
         var sortable = []
         for(var name in array) {
             sortable.push([name, array[name]])
