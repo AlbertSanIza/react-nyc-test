@@ -19,7 +19,7 @@ class Data extends Component {
                     if(typeof response.data.data[i][j] === "string") {
                         response.data.data[i][j] = response.data.data[i][j].toUpperCase()
                     }
-                    if(ethnicityIndex == j) {
+                    if(ethnicityIndex === j) {
                         switch(response.data.data[i][j]) {
                             case "WHITE NON HISP":
                             response.data.data[i][j] = "WHITE NON HISPANIC"
