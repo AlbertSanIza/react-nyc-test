@@ -1,8 +1,8 @@
-# react-nyc-test
+# React NYC Test
 
-[Demo](https://albertsaniza.github.io/react-nyc-test/)
+[Live Demo](https://albertsaniza.github.io/react-nyc-test/)
 
-By: Albert Sanchez
-
-* `Clone or download`
+#Instructions
+* `Clone or Download`
 * `npm install`
+* `npm start`
