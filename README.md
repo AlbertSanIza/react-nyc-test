@@ -2,7 +2,7 @@
 
 [Live Demo](https://albertsaniza.github.io/react-nyc-test/)
 
-#Instructions
+## Instructions
 * `Clone or Download`
 * `npm install`
 * `npm start`
